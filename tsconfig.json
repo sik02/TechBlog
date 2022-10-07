@@ -5,6 +5,7 @@
     "allowJs": true,
     "jsx": "preserve",
     "strict": true,
+    "types": ["@emotion/react/types/css-prop"],
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,

@@ -17,6 +17,10 @@ const PostHeadWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 400px;
+
+  @media (max-width: 768px) {
+    height: 300px;
+  }
 `
 
 //props로 받아 스타일과 함께 넘겨줌
@@ -31,6 +35,10 @@ const BackgroundImage = styled((props: GatsbyImgProps) => (
   height: 400px;
   object-fit: cover;
   filter: brightness(0.25);
+
+  @media (max-width: 768px) {
+    height: 300px;
+  }
 `
 
 const PostHead: FunctionComponent<PostHeadProps> = function ({

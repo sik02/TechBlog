@@ -22,9 +22,12 @@ export type CategoryListProps = {
 
 const CategoryListWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   width: 768px;
   margin: 100px auto 0;
+  color: red;
+  background: aqua;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -33,41 +36,89 @@ const CategoryListWrapper = styled.div`
   }
 `
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
+const RelativeWrapper = styled.div`
+  position: relative;
+`
+
+const AsideWrapper = styled.aside`
+  position: absolute;
+  left: 80%;
+  top: 0px;
+  width: 200px;
+  height: 100px;
+  font-size: 16px;
+`
+
+const SideTagList = styled.div`
+  margin-bottom: 25px;
+  font-weight: bold;
+  color: #fff;
+`
+const TagItem =  styled(({ active, ...props }: GatsbyLinkProps) => (
   <Link {...props} />
 ))<CategoryItemProps>`
-  margin-right: 20px;
-  padding: 5px 0;
-  font-size: 18px;
-  font-weight: ${({ active }) => (active ? '800' : '400')};
-  cursor: pointer;
-
-  &:last-of-type {
-    margin-right: 0;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 15px;
-  }
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  color: #fff;
 `
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
+//   <Link {...props} />
+// ))<CategoryItemProps>`
+//   margin-right: 20px;
+//   padding: 5px 0;
+//   font-size: 18px;
+//   font-weight: ${({ active }) => (active ? '800' : '400')};
+//   cursor: pointer;
+
+//   &:last-of-type {
+//     margin-right: 0;
+//   }
+
+//   @media (max-width: 768px) {
+//     font-size: 15px;
+//   }
+// `
 
 const CategoryList: FunctionComponent<CategoryListProps> = function ({
   selectedCategory,
   categoryList,
 }) {
   return (
-    <CategoryListWrapper>
-      {Object.entries(categoryList).map(([name, count]) => (
-        <CategoryItem
-          to={`/?category=${name}`}
-          active={name === selectedCategory}
-          key={name}
-        >
-          #{name}({count})
-        </CategoryItem>
-      ))}
-    </CategoryListWrapper>
+    // <CategoryListWrapper>
+    //   {Object.entries(categoryList).map(([name, count]) => (
+    //     <CategoryItem
+    //       to={`/?category=${name}`}
+    //       active={name === selectedCategory}
+    //       key={name}
+    //     >
+    //       #{name}({count})
+    //     </CategoryItem>
+    //   ))}
+    // </CategoryListWrapper>
+    <RelativeWrapper>
+      <AsideWrapper>
+        <SideTagList>Tag List</SideTagList>
+          
+            {Object.entries(categoryList).map(([name, count]) => (
+              <TagItem
+                to={`/?category=${name}`}
+                active={name === selectedCategory}
+                key={name}
+              >
+                #{name}({count})
+              </TagItem>
+            ))}
+            {/* <Li>abcd</Li>
+            <Li>abcd</Li>
+            <Li>abcd</Li>
+            <Li>abcd</Li> */}
+          
+        
+      </AsideWrapper>
+    </RelativeWrapper>
   )
 }
 export default CategoryList

@@ -9,7 +9,8 @@ type IntroductionProps = {
 
 const Background = styled.div`
   width: 100%;
-  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  /* background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); */
+  background: #35363a;
   color: #fff;
 `
 
@@ -17,9 +18,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  /* align-items: flex-start; */
   width: 768px;
-  height: 400px;
+  height: 300px;
   margin: 0 auto;
 
   @media (max-width: 768px) {
@@ -28,10 +29,27 @@ const Wrapper = styled.div`
     padding: 0 20px;
   }
 `
+const ProfileWrapper = styled.div`
+  display: flex;
+`
+
+const LeftContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+const RightContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20px;
+`
 
 const SubTitle = styled.div`
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 30px;
+  font-weight: 700;
+  color: #eee;
 
   @media (max-width: 768px) {
     font-size: 15px;
@@ -40,8 +58,9 @@ const SubTitle = styled.div`
 
 const Title = styled.div`
   margin-top: 5px;
-  font-size: 35px;
+  font-size: 20px;
   font-weight: 700;
+  color: #eee;
 
   @media (max-width: 768px) {
     font-size: 25px;
@@ -54,11 +73,15 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
   return (
     <Background>
       <Wrapper>
-        <ProfileImage profileImage={profileImage} />
-        <div>
-          <SubTitle>Nice to Meet You,</SubTitle>
-          <Title>I'm Junior Frontend Developer Hyun.</Title>
-        </div>
+        <ProfileWrapper>
+          <LeftContainer>
+            <ProfileImage profileImage={profileImage} />
+          </LeftContainer>
+          <RightContainer>
+            <SubTitle>@ Slingv</SubTitle>
+            <Title>꾸준한 성장을 위한 기록</Title>
+          </RightContainer>
+        </ProfileWrapper>
       </Wrapper>
     </Background>
   )

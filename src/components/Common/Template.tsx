@@ -2,6 +2,7 @@ import React, { FunctionComponent, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import GlobalStyle from './GlobalStyle'
 import Footer from './Footer'
+import Header from './Header'
 import { Helmet } from 'react-helmet'
 
 type TemplateProps = {
@@ -52,6 +53,7 @@ const Template: FunctionComponent<TemplateProps> = function ({
       </Helmet>
 
       <GlobalStyle />
+      <Header />
       {children}
       <Footer />
     </Container>

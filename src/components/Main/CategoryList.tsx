@@ -20,21 +20,21 @@ export type CategoryListProps = {
   }
 }
 
-const CategoryListWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 768px;
-  margin: 100px auto 0;
-  color: red;
-  background: aqua;
+// const CategoryListWrapper = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   flex-wrap: wrap;
+//   width: 768px;
+//.ㅋ   margin: 100px auto 0;
+//   color: red;
+//   background: aqua;
 
-  @media (max-width: 768px) {
-    width: 100%;
-    margin-top: 50px;
-    padding: 0 20px;
-  }
-`
+//   @media (max-width: 768px) {
+//     width: 100%;
+//     margin-top: 50px;
+//     padding: 0 20px;
+//   }
+// `
 
 const RelativeWrapper = styled.div`
   position: relative;
@@ -42,7 +42,7 @@ const RelativeWrapper = styled.div`
 
 const AsideWrapper = styled.aside`
   position: absolute;
-  left: 80%;
+  left: 77%;
   top: 0px;
   width: 200px;
   height: 100px;
@@ -108,7 +108,7 @@ const CategoryList: FunctionComponent<CategoryListProps> = function ({
                 active={name === selectedCategory}
                 key={name}
               >
-                #{name}({count})
+                {name} ({count})
               </TagItem>
             ))}
             {/* <Li>abcd</Li>

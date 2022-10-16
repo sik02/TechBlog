@@ -3,6 +3,10 @@ import styled from '@emotion/styled'
 import ProfileImage from 'components/Main/ProfileImage'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 
+import { BsGithub } from 'react-icons/bs'
+import { FaInstagram } from 'react-icons/fa'
+import { FiMail } from 'react-icons/fi'
+
 type IntroductionProps = {
   profileImage: IGatsbyImageData
 }
@@ -49,7 +53,7 @@ const RightContainer = styled.div`
 const SubTitle = styled.div`
   font-size: 30px;
   font-weight: 700;
-  color: #eee;
+  color: #fff;
 
   @media (max-width: 768px) {
     font-size: 15px;
@@ -60,30 +64,72 @@ const Title = styled.div`
   margin-top: 5px;
   font-size: 20px;
   font-weight: 700;
-  color: #eee;
+  color: #adb5bd;
 
   @media (max-width: 768px) {
     font-size: 25px;
   }
 `
 
+const Icon = styled.div`
+  margin-top: 10px;
+  font-size: 20px;
+`
+
+const IconWrapper = styled.a`
+  margin-left: 10px;
+  cursor: pointer;
+  color: #adb5bd;
+  font-size: 20px;
+
+  &:hover {
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+`
+
+const Line = styled.hr`
+  width: 768px;
+  margin: 0 auto;
+  border: none;
+  border-bottom: 1px solid #adb5bd;
+`
+
 const Introduction: FunctionComponent<IntroductionProps> = function ({
   profileImage,
 }) {
   return (
-    <Background>
-      <Wrapper>
-        <ProfileWrapper>
-          <LeftContainer>
-            <ProfileImage profileImage={profileImage} />
-          </LeftContainer>
-          <RightContainer>
-            <SubTitle>@ Slingv</SubTitle>
-            <Title>꾸준한 성장을 위한 기록</Title>
-          </RightContainer>
-        </ProfileWrapper>
-      </Wrapper>
-    </Background>
+    <>
+      <Background>
+        <Wrapper>
+          <ProfileWrapper>
+            <LeftContainer>
+              <ProfileImage profileImage={profileImage} />
+            </LeftContainer>
+            <RightContainer>
+              <SubTitle>@ Sling</SubTitle>
+              <Title>꾸준한 성장을 위한 기록</Title>
+              <Icon>
+                <IconWrapper href="https://github.com/sik02">
+                  <BsGithub />
+                </IconWrapper>
+                <IconWrapper href="https://www.instagram.com/sik_k_da/">
+                  <FaInstagram />
+                </IconWrapper>
+                <IconWrapper>
+                  <FiMail />
+                </IconWrapper>
+              </Icon>
+            </RightContainer>
+          </ProfileWrapper>
+        </Wrapper>
+      </Background>
+      <Line />
+    </>
   )
 }
 

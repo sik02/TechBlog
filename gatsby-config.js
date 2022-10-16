@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `주니어 개발자의 개발 블로그`,
+    title: `Sling.blog`,
     description: `주니어 개발자로서의 저를 표현한 블로그입니다.`,
-    author: `Hyun`,
+    author: `Sling`,
     siteUrl: 'https://www.naver.com', // 배포 후 변경 예정
   },
   plugins: [

@@ -87,7 +87,7 @@ const IconWrapper = styled.a`
     transition: all 0.3s ease;
   }
 
-  &:first-child {
+  &:first-of-type {
     margin-left: 0;
   }
 `

@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import PostItem from 'components/Main/PostItem'
 import { PostListItemType } from 'types/PostItem.types'
 
+
 import useInfiniteScroll, {
   useInfiniteScrollType,
 } from 'hooks/useInfiniteScroll'
@@ -14,7 +15,7 @@ type PostListProps = {
 
 const PostListWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 20px;
   width: 768px;
   margin: 0 auto;
@@ -35,7 +36,7 @@ const PostList: FunctionComponent<PostListProps> = function ({
     selectedCategory,
     posts,
   )
-
+    const test = true
   return (
     <PostListWrapper ref={containerRef}>
       {postList.map(
@@ -46,7 +47,7 @@ const PostList: FunctionComponent<PostListProps> = function ({
             frontmatter,
           },
         }: PostListItemType) => (
-          <PostItem {...frontmatter} link={slug} key={id} />
+          <PostItem {...frontmatter} link={slug} key={id} ImageIn={test}/>
         ),
       )}
     </PostListWrapper>

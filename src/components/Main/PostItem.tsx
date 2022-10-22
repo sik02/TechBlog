@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import { PostFrontmatterType } from 'types/PostItem.types'
 
-type PostItemProps = PostFrontmatterType & { link: string }
+
+type PostItemProps = PostFrontmatterType & { link: string, ImageIn: boolean }
 
 const PostItemWrapper = styled(Link)`
   display: flex;
@@ -12,7 +13,10 @@ const PostItemWrapper = styled(Link)`
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
   transition: 0.3s box-shadow;
+  /* background: red; */
   cursor: pointer;
+  height: 300px;
+
 
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -30,6 +34,7 @@ const PostItemContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
+  /* background: red; */
 `
 
 const Title = styled.div`
@@ -41,7 +46,7 @@ const Title = styled.div`
   overflow-wrap: break-word;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  font-size: 20px;
+  font-size: 32px;
   font-weight: 700;
 `
 
@@ -90,10 +95,13 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
     childImageSharp: { gatsbyImageData },
   },
   link,
+  ImageIn,
 }) {
+  ImageIn = false
+  const logo = require('../../../contents/logo.jpg');
   return (
     <PostItemWrapper to={link}>
-      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+      <ThumbnailImage image={ ImageIn ? gatsbyImageData : logo} alt="Post Item Image" />
       <PostItemContent>
         <Title>{title}</Title>
         <Date>{date}</Date>

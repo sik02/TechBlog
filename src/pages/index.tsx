@@ -83,7 +83,6 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       title={title}
       description={description}
       url={siteUrl}
-      image={publicURL}
     >
       <Introduction profileImage={gatsbyImageData} />
       <CategoryList
@@ -120,11 +119,6 @@ export const getPostList = graphql`
             summary
             date(formatString: "YYYY.MM.DD.")
             categories
-            thumbnail {
-              childImageSharp {
-                gatsbyImageData(width: 768, height: 400)
-              }
-            }
           }
         }
       }

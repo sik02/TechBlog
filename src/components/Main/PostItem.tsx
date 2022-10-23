@@ -1,27 +1,27 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { PostFrontmatterType } from 'types/PostItem.types'
 
 type PostItemProps = PostFrontmatterType & { link: string }
 
-const PostItemWrapper = styled(Link)`
+type CategoryItemProps = {
+  active: boolean
+}
+
+type GatsbyLinkProps = {
+  children: ReactNode
+  className?: string
+  to: string
+} & CategoryItemProps
+
+const PostItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.15); */
-  /* transition: 0.3s box-shadow; */
-  /* background: red; */
-  cursor: pointer;
   height: 300px;
   color: #fff;
-  /* border-top: 1px solid red;
-  border-bottom: 1px solid red; */
-
-  /* &:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  } */
 `
 
 const ThumbnailImage = styled(GatsbyImage)`
@@ -35,14 +35,13 @@ const PostItemContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
-  /* background: red; */
 `
 
-const Title = styled.div`
+const Title = styled(Link)`
   display: -webkit-box;
   overflow: hidden;
   margin-top: 1rem;
-  /* margin-bottom: 3px; */
+  cursor: pointer;
   text-overflow: ellipsis;
   white-space: normal;
   overflow-wrap: break-word;
@@ -51,41 +50,50 @@ const Title = styled.div`
   font-size: 32px;
   font-weight: 700;
   color: #fff;
+
+  &:hover{
+    text-decoration: underline;
+    color: #D8D8D8;
+  }
 `
 
 const DateWrapper = styled.div`
   height: 20px;
-  /* margin-top: 5rem; */
   margin-top: auto;
 `
 
 const Date = styled.div`
-  /* opacity: 0.7; */
-  /* margin-top: auto; */
-  /* margin-bottom: 1rem; */
   font-size: 14px;
   font-weight: 400;
-  /* align-items: center;
-  justify-content: center; */
 `
 
 const Category = styled.div`
   display: flex;
   flex-wrap: wrap;
-  /* margin-top: 1rem; */
-  /* margin-top: 10px; */
-  /* margin: 10px -5px; */
 `
 
-const CategoryItem = styled.div`
-  /* margin: 2.5px 5px; */
+// const CategoryItem = styled.div`
+//   margin-right: 0.6rem;
+//   padding: 0.5rem 1rem;
+//   border-radius: 1rem;
+//   /* background: #d8d8d8; */
+//   background: #000;
+//   font-size: 1rem;
+//   font-weight: 700;
+//   color: #fff;
+// `
+
+const CategoryItem = styled(({ active, ...props}: GatsbyLinkProps) => (
+  <Link {...props} /> 
+))<CategoryItemProps>`
   margin-right: 0.6rem;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
-  background: #d8d8d8;
+  /* background: #d8d8d8; */
+  background: #000;
   font-size: 1rem;
   font-weight: 700;
-  color: white;
+  color: #fff;
 `
 
 const SummaryWrapper = styled.div`
@@ -95,7 +103,6 @@ const SummaryWrapper = styled.div`
 const Summary = styled.div`
   display: -webkit-box;
   overflow: hidden;
-  /* margin-top: auto; */
   margin-top: 0.4rem;
   text-overflow: ellipsis;
   white-space: normal;
@@ -109,7 +116,6 @@ const Summary = styled.div`
 const BottomWrapper = styled.div`
   display: flex;
   margin-top: auto;
-  /* margin-bottom: 1rem; */
 `
 
 const Line = styled.hr`
@@ -131,10 +137,10 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
 }) {
   return (
     <>
-      <PostItemWrapper to={link}>
+      <PostItemWrapper>
         {/* <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" /> */}
         <PostItemContent>
-          <Title>{title}</Title>
+          <Title to={link}>{title}</Title>
           <SummaryWrapper>
             <Summary>{summary}</Summary>
           </SummaryWrapper>
@@ -144,7 +150,7 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
           <BottomWrapper>
             <Category>
               {categories.map(category => (
-                <CategoryItem key={category}>{category}</CategoryItem>
+                <CategoryItem to={`/?category=${category}`}active={true} key={category}>{category}</CategoryItem>
               ))}
             </Category>
           </BottomWrapper>

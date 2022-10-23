@@ -6,13 +6,14 @@ interface PostContentProps {
 }
 
 const MarkdownRenderer = styled.div`
-  //Renderer Style
+   //Renderer Style
   display: flex;
   flex-direction: column;
   width: 768px;
   margin: 0 auto;
   padding: 100px 0;
   word-break: break-all;
+  color: #fff;
 
   //Markdwon Style
   line-height: 1.8;
@@ -20,7 +21,7 @@ const MarkdownRenderer = styled.div`
   font-weight: 400;
 
   //Apply Padding Attribute to All Elements
-  p {
+   p {
     padding: 3px 0;
   }
 
@@ -35,7 +36,7 @@ const MarkdownRenderer = styled.div`
   * + h1,
   * + h2,
   * + h3 {
-    margin-top: 80px;
+    margin-top: 30px;
   }
 
   hr + h1,
@@ -54,28 +55,30 @@ const MarkdownRenderer = styled.div`
 
   h3 {
     font-size: 20px;
-  }
+  } 
 
   //Adjust Quotation Element Style
   blockquote {
-    margin: 30px 0;
+    margin: 15px 0;
     padding: 5px 15px;
     border-left: 2px solid #000;
     font-weight: 800;
   }
-
+  
   //Adjust List Element Style
   ol,
   ul {
     margin-left: 20px;
-    padding: 30px 0;
+    /* padding: 30px 0; */
+    padding: 10px 0;
   }
-
+ 
   //Adjust Horizontal Rule style
   hr {
     border: 1px solid #000;
-    margin: 100px 0;
+    margin: 30px 0;
   }
+
 
   //Adjust Link Element Style
   a {
@@ -125,7 +128,7 @@ const MarkdownRenderer = styled.div`
     hr {
       margin: 50px 0;
     }
-  }
+  }  
 `
 
 const PostContent: FunctionComponent<PostContentProps> = function ({ html }) {

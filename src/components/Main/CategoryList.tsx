@@ -43,7 +43,7 @@ const RelativeWrapper = styled.div`
 const AsideWrapper = styled.aside`
   position: absolute;
   left: 77%;
-  top: 0px;
+  top: 30px;
   width: 200px;
   height: 100px;
   font-size: 16px;

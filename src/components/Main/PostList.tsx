@@ -19,7 +19,7 @@ const PostListWrapper = styled.div`
   grid-gap: 20px;
   width: 768px;
   margin: 0 auto;
-  padding: 50px 0 100px;
+  padding: 20px 0 100px;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -36,7 +36,6 @@ const PostList: FunctionComponent<PostListProps> = function ({
     selectedCategory,
     posts,
   )
-    const test = true
   return (
     <PostListWrapper ref={containerRef}>
       {postList.map(
@@ -47,7 +46,7 @@ const PostList: FunctionComponent<PostListProps> = function ({
             frontmatter,
           },
         }: PostListItemType) => (
-          <PostItem {...frontmatter} link={slug} key={id} ImageIn={test}/>
+          <PostItem {...frontmatter} link={slug} key={id} />
         ),
       )}
     </PostListWrapper>

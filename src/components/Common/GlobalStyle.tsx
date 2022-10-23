@@ -20,7 +20,7 @@ const defaultStyle = css`
 
   a,
   a:hover {
-    color: inherit;
+    /* color: inherit; */
     text-decoration: none;
     cursor: pointer;
   }

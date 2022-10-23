@@ -5,11 +5,11 @@ import { PostFrontmatterType } from 'types/PostItem.types'
 
 type PostItemProps = PostFrontmatterType & { link: string }
 
-type CategoryItemProps = {
+export type CategoryItemProps = {
   active: boolean
 }
 
-type GatsbyLinkProps = {
+export type GatsbyLinkProps = {
   children: ReactNode
   className?: string
   to: string

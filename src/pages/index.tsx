@@ -12,6 +12,8 @@ import queryString, { ParsedQuery } from 'query-string'
 
 import Template from 'components/Common/Template'
 
+import Search from '../components/Search'
+
 type IndexPageProps = {
   location: {
     search: string
@@ -79,6 +81,8 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     [],
   )
   return (
+    <>
+    <Search />
     <Template title={title} description={description} url={siteUrl}>
       <Introduction profileImage={gatsbyImageData} />
       <CategoryList
@@ -87,6 +91,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       />
       <PostList selectedCategory={selectedCategory} posts={edges} />
     </Template>
+    </>
   )
 }
 

@@ -31,7 +31,7 @@ const LogoContainer = styled.div`
   align-items: center;
 `
 
-const Logo = styled.div`
+const Logo = styled.a`
   color: #fff;
   display: flex;
   justify-content: center;
@@ -89,7 +89,7 @@ const Header: FunctionComponent = function () {
       <Headers>
         <HeaderContainer>
           <LogoContainer>
-            <Logo>Sling.blog</Logo>
+            <Logo href="/">Sling.blog</Logo>
           </LogoContainer>
           <SearchBarContainer>
             <label htmlFor="search"></label>

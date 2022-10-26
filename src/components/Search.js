@@ -75,6 +75,7 @@ const Search = (props) => {
         aria-label="Search"
         onChange={handleInputChange}
       />
+      {/* 결과물 찍어주는 부분 */}
       {state.query && (
         <div className={"search-result-container"}>
           {renderSearchResults()}

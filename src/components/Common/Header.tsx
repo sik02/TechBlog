@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import { BsSearch } from 'react-icons/bs'
+import {Link} from 'gatsby'
 
 const Headers = styled.div`
   height: 60px;
@@ -41,10 +42,10 @@ const Logo = styled.a`
   font-weight: bold;
 `
 
-const SearchBarContainer = styled.form`
+const SearchBarContainer = styled.div`
   width: 300px;
   display: flex;
-  /* justify-content: flex-end; */
+  justify-content: flex-end;
   margin: 0;
   align-items: center;
 `
@@ -62,7 +63,7 @@ const SearchBar = styled.input`
   /* margin: 24px 0 0 20px; */
 `
 
-const Button = styled.button`
+const Button = styled(Link)`
   background: transparent;
   /* margin-top: 35px;
   margin-left: 10px; */
@@ -73,6 +74,8 @@ const Button = styled.button`
   width: 50px;
   height: 50px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 `
 
 // const SearchBar = styled.div`
@@ -92,15 +95,15 @@ const Header: FunctionComponent = function () {
             <Logo href="/">Sling.blog</Logo>
           </LogoContainer>
           <SearchBarContainer>
-            <label htmlFor="search"></label>
+            {/* <label htmlFor="search"></label>
             <SearchBar
               name="search"
               value=""
               type="text"
               placeholder="   Search"
-            ></SearchBar>
-            <Button type="submit">
-              <BsSearch />
+            ></SearchBar> */}
+            <Button to='/search'>
+              <BsSearch size={24}/>
             </Button>
           </SearchBarContainer>
         </HeaderContainer>
